@@ -1,0 +1,10 @@
+<mat-card>
+  <mat-card-title>Agregar nuevo equipo</mat-card-title>
+  <mat-card-subtitle>Introduzca el nombre del nuevo equipo a agregar al fixture.</mat-card-subtitle>
+  <form class="add">
+    <mat-form-field style="margin-right:32px;">
+      <input #inputTeam matInput placeholder="Favorite food" placeholder="Introducir equipo" value="">
+    </mat-form-field>
+    <button mat-raised-button color="primary" type="button" (click)="addTeam(inputTeam.value)" (keyup.enter)="addTeam(inputTeam.value)">Agregar equipo</button>
+  </form>
+</mat-card>

@@ -1,0 +1,18 @@
+<mat-card>
+  <mat-card-title>Lista de equipos</mat-card-title>
+  <mat-card-content>
+    <mat-list role="list">
+      <div *ngFor="let team of teams" fxLayout="row">
+        <mat-list-item fxFlex="80" role="listitem">
+          {{team}}
+        </mat-list-item>
+
+            <button fxFlex="20" mat-button color="warn" (click)="delTeam(team)">
+             Borrar
+            </button>
+        <mat-divider></mat-divider>
+      </div>
+
+    </mat-list>
+  </mat-card-content>
+</mat-card>
