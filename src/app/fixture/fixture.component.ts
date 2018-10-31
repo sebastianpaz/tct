@@ -8,16 +8,18 @@ import {AppComponent} from "../app.component";
 })
 export class FixtureComponent implements OnInit {
 
-  @ViewChild('btnGenerar') btnGenerar;
-
 
   constructor(private main : AppComponent) { }
 
-  ngOnInit() {
-      if(this.main.teams.length >= 4)
-        this.btnGenerar.enabled = true;
-      else
-        this.btnGenerar.enabled = false;
-  }
+  teams : string[] = this.main.teams;
+  fixture : any[];
 
+  ngOnInit() {}
+
+  generate() {
+    this.main.generate();
+    this.fixture = this.main.fixture;
+
+    console.log(this.fixture)
+  }
 }

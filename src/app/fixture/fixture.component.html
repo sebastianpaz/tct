@@ -1,5 +1,21 @@
 <mat-card>
   <mat-card-title>Fixture</mat-card-title>
-  <mat-card-subtitle>Cuando al menos cuatro equipos hayan sido agregados, puedes generar el fixture.</mat-card-subtitle>
-  <button #btnGenerar mat-raised-button color="primary" [disabled]="true">Generar fixture</button>
+  <mat-card-subtitle>Cuando un número par de equipos mayor a 4 haya sido agregado, puedes generar el fixture.</mat-card-subtitle>
+  <button *ngIf="(teams.length < 4 || teams.length > 20) || teams.length % 2 == 1" #btnGenerar mat-raised-button color="primary" [disabled]="true">Generar fixture</button>
+  <button *ngIf="teams.length >= 4 && teams.length<=20 && teams.length % 2 == 0" #btnGenerar mat-raised-button color="primary" (click)="generate()">Generar fixture</button>
+
+  <mat-list role="list">
+    <br>
+    <div *ngFor="let team of fixture; let i = index" fxLayout="row">
+      <div *ngIf="i<fixture.length-1">
+        <mat-label><strong>Ronda {{i+1}}</strong></mat-label>
+        <div *ngFor="let match of fixture[i].matches; let j = index">
+          <div *ngIf="j<fixture.length/2">
+            <mat-label>{{teams[j]}} <strong>vs.</strong> {{fixture[j].matches[i]}}</mat-label>
+          </div>
+        </div>
+        <br>
+      </div>
+    </div>
+  </mat-list>
 </mat-card>

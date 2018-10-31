@@ -11,9 +11,12 @@ export class AddComponent implements OnInit {
 
   ngOnInit() {}
 
+  input : string = null;
+
   constructor(private main : AppComponent) {}
 
   addTeam(name : string) {
+    this.input = "";
     this.main.addTeam(name);
   }
 }
